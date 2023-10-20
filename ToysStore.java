@@ -41,6 +41,12 @@ public class ToysStore {
         }
     }
 
-
-
+    public void getRandomToy() throws IOException {
+        if (listToys.size() > 0) {
+            Toys randomToy = listToys.remove(0);
+            FileWriter writer = new FileWriter("toys.txt", true);
+            writer.write(randomToy.getId() + "  " + randomToy.getName() + "\n");
+            writer.close();
+        }
+    }
 }
