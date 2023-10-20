@@ -18,4 +18,29 @@ public class ToysStore {
         toys.add(toy);
     }
 
+    public void play() {
+        double weight = 0;
+        for (Toys toy : toys) {
+            weight += toy.getWeight();
+        }
+
+        Random rand = new Random();
+        double randomNumber = rand.nextDouble() * weight;
+
+        Toys randomToy = null;
+        for (Toys toy : toys) {
+            if (randomNumber < toy.getWeight()) {
+                randomToy = toy;
+                break;
+            }
+            randomNumber -= toy.getWeight();
+        }
+
+        if (randomToy != null) {
+            listToys.add(randomToy);
+        }
+    }
+
+
+
 }
